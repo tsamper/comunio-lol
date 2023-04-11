@@ -1,11 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export function LoginForm () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [loginValid, setLoginValid] = useState(true)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setLoginValid(true)
+  }, [username, password])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -25,6 +30,7 @@ export function LoginForm () {
       localStorage.setItem('token', data.token)
     } catch (error) {
       console.error(error)
+      setLoginValid(false)
       return
     }
     setUsername('')
@@ -39,8 +45,9 @@ export function LoginForm () {
         <input type='text' id='username' value={username} required onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor='password'>Contraseña:</label>
         <input type='password' id='paswword' value={password} required onChange={(e) => setPassword(e.target.value)} />
+        <p className={loginValid ? 'loginValid' : 'loginInvalid'}>Usuario o contraseña incorrectos</p>
       </div>
-      <button type='submit'>Login</button>
+      <button disabled={!loginValid} type='submit'>Login</button>
     </form>
   )
 }

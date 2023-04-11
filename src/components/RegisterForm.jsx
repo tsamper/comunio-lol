@@ -119,7 +119,7 @@ export function RegisterForm () {
         <input className={emailValid ? '' : 'invalid-input'} type='email' id='email' value={email} required onChange={(e) => setEmail(e.target.value)} />
         <p className={emailValid ? 'valid-input-p' : 'invalid-input-p'}>Email en uso</p>
       </div>
-      <button type='submit' disabled={!usernameValid || !passwordValid}>Registro</button>
+      <button type='submit' disabled={!usernameValid || !passwordValid || !emailValid}>Registro</button>
     </form>
   )
 }

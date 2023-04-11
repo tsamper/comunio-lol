@@ -13,7 +13,7 @@ export function Header (props) {
     const timer = setTimeout(() => {
       localStorage.removeItem('token')
       window.location.reload()
-    }, 500)
+    }, 200)
     return () => clearTimeout(timer)
   }
   return (
