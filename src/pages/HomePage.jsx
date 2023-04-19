@@ -1,7 +1,24 @@
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function HomePage (props) {
+  const [leagues, setLeagues] = useState()
   const navigate = useNavigate()
+
+  if (localStorage.getItem('token')) {
+    useEffect(() => {
+      fetch('http://localhost:8080/getLeaguesFromUser', {
+        method: 'GET',
+        headers: new Headers({
+          /* global localStorage */
+          /* eslint no-undef: "error" */
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        })
+      })
+        .then(response => response.json())
+        .then(data => setLeagues(data))
+    }, [])
+  }
   const handleClick = () => {
     navigate('/newleague')
   }
@@ -12,12 +29,12 @@ export function HomePage (props) {
         <div className='homeContent'>
           <h1>Bienvenido, {props.activeUser.username}</h1>
           <h2>Mis ligas</h2>
-          {props.activeUser.leagues
+          {leagues
           /* eslint-disable-next-line */
             ? 
-              <ul>
-                {props.activeUser.leagues.map((league) => (
-                  <li key={league.id}>{league.name}</li>
+              <ul className='leagues'>
+                {leagues.map((league) => (
+                  <li key={league.id}><Link to={`league/${league.code}`}>{league.name}</Link></li>
                 ))}
               </ul>
             : <p>No tienes ninguna liga</p>}

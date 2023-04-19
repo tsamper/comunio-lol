@@ -64,6 +64,9 @@ form{
   flex-direction: column;
   align-items: center;
 }
+.formContent{
+  width: 100%;
+}
 button{
   font-family: 'Rubik', sans-serif;
   font-weight: 600;
@@ -80,6 +83,13 @@ button:hover{
   color: black;
   cursor: pointer;
 }
+.smallButton{
+  font-weight: 400;
+  padding: 6px 30px;
+  border-radius: 28px;
+  width: 15%;
+  margin-top: 0px;
+}
 input, select{
   margin-top: 20px;
   background: transparent;
@@ -91,7 +101,6 @@ input, select{
   outline: none;
   opacity: .6;
   padding-bottom: 15px;
-  padding-left: 50px;
   width: 100%;
 }
 option{
@@ -128,4 +137,83 @@ footer{
 .homeContent{
     width: 1920px;
     margin: 0 auto;
+}
+.leagues{
+  margin-top: 50px;
+}
+.leagues li{
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+}
+.leagues a{
+  text-decoration: none;
+  color: white;
+}
+.leagues a:hover{
+  color:grey
+}
+.leagueContent{
+  width: 1920px;
+  min-height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  
+}
+.leagueMap{
+  background-image: url('/src/assets/img/mapaLol.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+  margin-bottom: 50px;
+}
+.ladoMap{
+  width: 50%;
+}
+.ladoMercado{
+  width: 50%;
+}
+.myTeamForm{
+  width: 10%;
+  background-color: white;
+  color: black;
+  font-size: 1.3rem;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#topSelect{
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 25px;
+  width: 150px;
+}
+#jngSelect{
+  position: absolute;
+  margin-top: 350px;
+  margin-left: 175px;
+  width: 150px;
+}
+#midSelect{
+  position: absolute;
+  margin-top: 450px;
+  margin-left: 325px;
+  width: 150px;
+}
+#adcSelect{
+  position: absolute;
+  margin-top: 675px;
+  margin-left: 650px;
+  width: 150px;
+}
+#supSelect{
+  position: absolute;
+  margin-top: 675px;
+  margin-left: 450px;
+  width: 150px;
+}
+.jugadoresMercado{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
 }

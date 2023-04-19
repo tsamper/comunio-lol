@@ -8,6 +8,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { NewLeaguePage } from './pages/NewLeaguePage'
+import { LeaguePage } from './pages/LeaguePage'
 
 function App () {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -38,6 +39,7 @@ function App () {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/profile' element={<ProfilePage loggedIn={loggedIn} />} />
           <Route path='/newleague' element={<NewLeaguePage loggedIn={loggedIn} />} />
+          <Route path='/league/:code' element={<LeaguePage loggedIn={loggedIn} />} />
         </Routes>
       </main>
       <Footer />

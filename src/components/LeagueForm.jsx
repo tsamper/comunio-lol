@@ -6,7 +6,7 @@ export function LeagueForm () {
   const [code, setCode] = useState('')
   const [leagueType, setLeagueType] = useState('LVP')
   const [Leagues, setLeagues] = useState(null)
-  const [validCode, setValidCode] = useState(false)
+  const [validCode, setValidCode] = useState('false')
   const [leaguesCode, setLeaguesCode] = useState(null)
   const navigate = useNavigate()
 
@@ -32,8 +32,11 @@ export function LeagueForm () {
     })
       .then(response => response.json())
       .then(data => setLeaguesCode(data))
-  })
+  }, [])
   useEffect(() => {
+    if (code === '') {
+      return
+    }
     const codeRegex = /^[a-zA-Z0-9]{5}$/
     const isCodeValid = codeRegex.test(code)
     let isCodeUnique = true
