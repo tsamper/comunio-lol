@@ -96,7 +96,7 @@ export function RegisterForm () {
     navigate('/')
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='defaultForm'>
       <div className='formContent'>
         <label htmlFor='name'>Nombre:</label>
         <input className={nameValid ? '' : 'invalid-input'} type='text' id='name' value={name} onChange={(e) => setName(e.target.value)} />

@@ -9,8 +9,8 @@ export function Mercado (props) {
   })
 
   const handleClick = (player) => {
-    fetch('http://localhost:8080/buyPlayer', {
-      method: 'POST',
+    fetch(`http://localhost:8080/buyPlayer/${props.code}`, {
+      method: 'PATCH',
       headers: {
         /* global localStorage */
         /* eslint no-undef: "error" */
@@ -19,6 +19,7 @@ export function Mercado (props) {
       },
       body: JSON.stringify(player)
     })
+      .then(window.location.reload())
   }
   return (
     <>

@@ -23,7 +23,7 @@ export function AddtoLeague () {
       )
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='defaultForm'>
       <div className='formContent'>
         <label htmlFor='code'>Código de la liga</label>
         <input type='text' id='code' value={code} onChange={(e) => setCode(e.target.value)} />

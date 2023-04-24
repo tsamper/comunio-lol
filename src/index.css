@@ -56,7 +56,7 @@ h2{
   text-align: center;
   padding: 35px;
 }
-form{
+.defaultForm{
   padding: 80px;
   font-size: 1.2rem;
   width: 800px;
@@ -216,4 +216,7 @@ footer{
   display: flex;
   justify-content: space-around;
   margin-top: 25px;
+}
+.leagueMap option {
+  background-color: white;
 }

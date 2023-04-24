@@ -31,7 +31,6 @@ export function LeaguePage (props) {
     })
       .then(response => response.json())
       .then(data => setPlayers(data))
-      .then(data => console.log(players))
   }, [league])
 
   return (
@@ -40,9 +39,9 @@ export function LeaguePage (props) {
         <>
           <h1>Liga {league.name}</h1>
           <div className='leagueContent'>
-            <MyTeam />
+            <MyTeam code={code} />
             <div className='ladoMercado'>
-              <Mercado players={players} />
+              <Mercado players={players} code={code} />
               <Clasificacion />
             </div>
           </div>
